@@ -312,7 +312,7 @@ def train(TRAIN_TEST_SPLIT = 0.8, dataset_path = 'D:/CMP dataset/base', ckpt_pat
     """using Adam optimizer with small learning rate, as we are fine tuning the model """
     optimizer = torch.optim.Adam(model.parameters(), lr=0.0005)
     """using dice loss for multi-class semantic segmentation, https://arxiv.org/pdf/2006.14822.pdf"""
-    criterion = DiceLoss(mode = 'multilabel', from_logits = False)
+    criterion = JaccardLoss(mode = 'multilabel', from_logits = False)
     training_loss = []
     training_iou = []
     test_iou = []
